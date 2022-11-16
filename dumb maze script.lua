@@ -30,7 +30,7 @@ local RandomNotes = NotesList[Randomness]
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
 local Window = Rayfield:CreateWindow({
-	Name = "Lunar Hub".." - "..tostring(identifyexecutor()).." - [V1.0.1:EA]",
+	Name = "Lunar Hub".." - "..tostring(identifyexecutor()).." - [V1.0.2:EA]",
 	LoadingTitle = "Lunar Hub",
 	LoadingSubtitle = "Loading Lunar Hub...",
 	ConfigurationSaving = {
@@ -170,8 +170,8 @@ local Window = Rayfield:CreateWindow({
                 MonsterESP.Name = v.Name
                 MonsterESP.FillTransparency = 0
                 MonsterESP.OutlineTransparency = 0
-                MonsterESP.FillColor = Color3.new(255, 255, 255)
-                MonsterESP.OutlineColor = Color3.new(120, 0, 255)
+                MonsterESP.FillColor = Color3.new(0, 0, 0)
+                MonsterESP.OutlineColor = Color3.new(255, 255, 255)
                 MonsterESP.Parent = game:GetService("Workspace").TheCajoler
                 end
             end
@@ -182,7 +182,7 @@ local Window = Rayfield:CreateWindow({
                 MonsterESP.FillTransparency = 0
                 MonsterESP.OutlineTransparency = 0
                 MonsterESP.FillColor = Color3.new(0, 0, 0)
-                MonsterESP.OutlineColor = Color3.new(120, 0, 255)
+                MonsterESP.OutlineColor = Color3.new(255, 255, 255)
                 MonsterESP.Parent = game:GetService("Workspace").TheOrotund
                 end
             end
@@ -206,13 +206,7 @@ local Window = Rayfield:CreateWindow({
         Content = "Lunar Hub has been loaded. Enjoy!",
         Duration = math.huge,
         Image = 4483362458,
-        Actions = { -- Notification Buttons
-            OkayAnswer = {
-                Name = "Okay!",
-                Callback = function()
-                    Duration = 0
-                end
-            },
+        Actions = {
         },
     })
 
