@@ -30,7 +30,7 @@ local RandomNotes = NotesList[Randomness]
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
 local Window = Rayfield:CreateWindow({
-	Name = "Lunar Hub".." - "..tostring(identifyexecutor()),
+	Name = "Lunar Hub".." - "..tostring(identifyexecutor()).." - [V1.0.1:EA]",
 	LoadingTitle = "Lunar Hub",
 	LoadingSubtitle = "Loading Lunar Hub...",
 	ConfigurationSaving = {
@@ -54,6 +54,21 @@ local Window = Rayfield:CreateWindow({
 		Key = "https://pastebin.com/raw/qr6uq8ZV"
 	}
 })
+
+    local LocalTab = Window:CreateTab("Local")
+    local LocalSection = LocalTab:CreateSection("Local")
+    
+    local Slider = LocalTab:CreateSlider({
+        Name = "Walkspeed",
+        Range = {16, 150},
+        Increment = 1,
+        Suffix = "WS",
+        CurrentValue = 16,
+        Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+        Callback = function(WSSliderValue)
+            game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = WSSliderValue
+        end,
+    })
 
     local MainTab = Window:CreateTab("Main")
     local MainSection = MainTab:CreateSection("Main")
@@ -155,7 +170,7 @@ local Window = Rayfield:CreateWindow({
                 MonsterESP.Name = v.Name
                 MonsterESP.FillTransparency = 0
                 MonsterESP.OutlineTransparency = 0
-                MonsterESP.FillColor = Color3.new(0, 0, 0)
+                MonsterESP.FillColor = Color3.new(255, 255, 255)
                 MonsterESP.OutlineColor = Color3.new(120, 0, 255)
                 MonsterESP.Parent = game:GetService("Workspace").TheCajoler
                 end
