@@ -119,7 +119,7 @@ local Window = Rayfield:CreateWindow({
         Callback = function(mESP)
             if mESP then
                 for i,v in pairs(game:GetService("Workspace").The_Rake:GetDescendants()) do
-                if v:IsA("Part") then
+                if v:IsA("Model") then
                     local RakeESP = Instance.new("Highlight")
                     RakeESP.Name = v.Name
                     RakeESP.FillTransparency = 0
@@ -170,7 +170,7 @@ local Window = Rayfield:CreateWindow({
         Callback = function(pESP)
             if pESP then
                 for i,v in pairs(game:GetService("Workspace").Halloween_Pumpkin_Event:GetDescendants()) do
-                if v:IsA("Part") then
+                if v:IsA("Model") then
                     local PumpkinESP = Instance.new("Highlight")
                     PumpkinESP.Name = v.Name
                     PumpkinESP.FillTransparency = 0
