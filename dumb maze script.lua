@@ -203,7 +203,7 @@ local Window = Rayfield:CreateWindow({
 	Callback = function(mESP)
 	    if mESP then
             for i,v in pairs(game:GetService("Workspace").TheCajoler:GetDescendants()) do
-            if v:IsA("Part") then
+            if v:IsA("Model") then
                 local MonsterESP = Instance.new("Highlight")
                 MonsterESP.Name = v.Name
                 MonsterESP.FillTransparency = 0
@@ -214,7 +214,7 @@ local Window = Rayfield:CreateWindow({
                 end
             end
             for i,v in pairs(game:GetService("Workspace").TheOrotund:GetDescendants()) do
-            if v:IsA("Part") then
+            if v:IsA("Model") then
                 local MonsterESP = Instance.new("Highlight")
                 MonsterESP.Name = v.Name
                 MonsterESP.FillTransparency = 0
