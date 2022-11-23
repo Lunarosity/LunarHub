@@ -239,24 +239,6 @@ local Window = Rayfield:CreateWindow({
     end,
     })
 
-    local EspSection = EspTab:CreateSection("Keybind")
-
-    EspTab:CreateKeybind({
-        Name = "ESP Keybind Enable",
-        CurrentKeybind = "P",
-        Callback = function(ESPKeybindFunc)
-            local keybindespvalue.Value = false
-            if ESPKeybindFunc then
-                keybindespvalue.Value = true
-                MonsterESPLocal.CurrentValue = true
-            else
-                keybindespvalue.Value = false
-                MonsterESPLocal.CurrentValue = false
-            end
-    -- The variable (Keybind) is a string for the keybind currently in use
-    end,
-    })
-
     Rayfield:Notify({
         Title = "Successfully Loaded Lunar Hub",
         Content = "Lunar Hub has been loaded. Enjoy!",
