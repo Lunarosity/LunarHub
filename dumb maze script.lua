@@ -14,7 +14,7 @@
 	Name = "",
 	CurrentValue = false,
 	Callback = function(example)
-	    if example == true then
+	    if example then
             
         else
             
@@ -30,13 +30,13 @@ local RandomNotes = NotesList[Randomness]
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
 local Window = Rayfield:CreateWindow({
-	Name = "Lunar Hub".." - "..tostring(identifyexecutor()).." - [V1.0.2:EA]",
+	Name = "Lunar Hub".." - "..tostring(identifyexecutor()).." - [V1.2:EA]",
 	LoadingTitle = "Lunar Hub",
 	LoadingSubtitle = "Loading Lunar Hub...",
 	ConfigurationSaving = {
 		Enabled = true,
 		FolderName = "LunarHub", -- Create a custom folder for your hub/game
-		FileName = "LunarHubConfig"
+		FileName = "LunarHubTheMazeConfig"
 	},
         Discord = {
         	Enabled = true,
@@ -70,6 +70,17 @@ local Window = Rayfield:CreateWindow({
         end,
     })
 
+    LocalTab:CreateButton({
+        Name = "No Fall Damage",
+        Callback = function()
+                for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+                    if v.Name == "FallDamage" then
+                        v:Destroy()
+                    end
+                end
+        end,
+    })
+
     local MainTab = Window:CreateTab("Main")
     local MainSection = MainTab:CreateSection("Main")
     
@@ -86,11 +97,12 @@ local Window = Rayfield:CreateWindow({
 	CurrentValue = false,
 	Flag = "ThirdPFlag",
 	Callback = function(thirdp)
-	    if thirdp == true then
-	        game:GetService("Players").LocalPlayer.PlayerGui.FirstPerson:Destroy()
+	    if thirdp then
+	        game:GetService("Players").LocalPlayer.PlayerGui.FirstPerson.Script.Disabled = true
             game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = math.huge
             game:GetService("Players").LocalPlayer.CameraMode = Enum.CameraMode.Classic
         else
+            game:GetService("Players").LocalPlayer.PlayerGui.FirstPerson.Script.Disabled = false
             game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = 0.5
             game:GetService("Players").LocalPlayer.CameraMode = Enum.CameraMode.LockFirstPerson
 	    end
@@ -102,7 +114,7 @@ local Window = Rayfield:CreateWindow({
 	CurrentValue = false,
 	Flag = "FBFlag",
 	Callback = function(fb)
-	    if fb == true then
+	    if fb then
 		    game:GetService("Lighting").Brightness = 2
 	        game:GetService("Lighting").ClockTime = 14
 	        game:GetService("Lighting").FogEnd = math.huge
@@ -118,6 +130,13 @@ local Window = Rayfield:CreateWindow({
 	    end,
     })
 
+    MainTab:CreateButton({
+        Name = "Infinite Flashlight Battery",
+        Callback = function()
+            game:GetService("Players").LocalPlayer.Character.Flashlight.Handle.BatteryEffected:Destroy()
+        end,
+    })
+
     local MainSection = MainTab:CreateSection("Other")
 
     MainTab:CreateButton({
@@ -127,10 +146,29 @@ local Window = Rayfield:CreateWindow({
         end,
     })
 
-    MainTab:CreateButton({
-        Name = "Destroy Skybox",
-        Callback = function()
-            game:GetService("Workspace").BlackSkybox:Destroy()
+    MainTab:CreateToggle({
+        Name = "Disable Skybox",
+        CurrentValue = false,
+        Flag = "SkyboxRemoveFlag",
+        Callback = function(SkyboxRemoval)
+            if SkyboxRemoval then
+                game:GetService("Workspace").BlackSkybox.Transparency = 1
+            else
+                game:GetService("Workspace").BlackSkybox.Transparency = 0
+            end
+        end,
+    })
+
+    MainTab:CreateToggle({
+        Name = "Disable Screen Filter",
+        CurrentValue = false,
+        Flag = "ScreenFilterFlag",
+        Callback = function(ScreenFilterDisable)
+            if ScreenFilterDisable then
+                game:GetService("Players").LocalPlayer.PlayerGui.CurrentView.Enabled = false
+            else
+                game:GetService("Players").LocalPlayer.PlayerGui.CurrentView.Enabled = true
+            end
         end,
     })
     
@@ -158,12 +196,12 @@ local Window = Rayfield:CreateWindow({
     local EspTab = Window:CreateTab("ESP")
     local EspSection = EspTab:CreateSection("ESP")
     
-    EspTab:CreateToggle({
+    local MonsterESPLocal = EspTab:CreateToggle({
 	Name = "Monster ESP",
 	CurrentValue = false,
 	Flag = "ESPFlag",
 	Callback = function(mESP)
-	    if mESP == true then
+	    if mESP then
             for i,v in pairs(game:GetService("Workspace").TheCajoler:GetDescendants()) do
             if v:IsA("Part") then
                 local MonsterESP = Instance.new("Highlight")
@@ -201,14 +239,40 @@ local Window = Rayfield:CreateWindow({
     end,
     })
 
+    local EspSection = EspTab:CreateSection("Keybind")
+
+    EspTab:CreateKeybind({
+        Name = "ESP Keybind Enable",
+        CurrentKeybind = "P",
+        Callback = function(ESPKeybindFunc)
+            local keybindespvalue.Value = false
+            if ESPKeybindFunc then
+                keybindespvalue.Value = true
+                MonsterESPLocal.CurrentValue = true
+            else
+                keybindespvalue.Value = false
+                MonsterESPLocal.CurrentValue = false
+            end
+    -- The variable (Keybind) is a string for the keybind currently in use
+    end,
+    })
+
     Rayfield:Notify({
         Title = "Successfully Loaded Lunar Hub",
         Content = "Lunar Hub has been loaded. Enjoy!",
         Duration = math.huge,
         Image = 4483362458,
-        Actions = {
+        Actions = { -- Notification Buttons
+            Answer = {
+                Name = "Okay!",
+                Callback = function()
+                    Duration = 0
+                end
+            },
         },
     })
+
+    wait(3)
 
     Rayfield:Notify({
         Title = "Load Configuration?",
