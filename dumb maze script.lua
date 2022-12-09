@@ -60,7 +60,7 @@ local Window = Rayfield:CreateWindow({
 
 ----------[[]]----------
 
-    local LocalTab = Window:CreateTab("Local", 6034503364)
+    local LocalTab = Window:CreateTab("Local", 6022668898)
     local LocalSection = LocalTab:CreateSection("Local")
     
     LocalTab:CreateSlider({
@@ -134,7 +134,7 @@ local Window = Rayfield:CreateWindow({
 
 ----------[[]]----------
 
-    local MainTab = Window:CreateTab("Main", 4483362458)
+    local MainTab = Window:CreateTab("Main", 6022668876)
     local MainSection = MainTab:CreateSection("Main")
     
     MainTab:CreateButton({
@@ -270,7 +270,7 @@ local Window = Rayfield:CreateWindow({
 
 ----------[[]]----------
 
-    local OtherTab = Window:CreateTab("Other", 4483362458)
+    local OtherTab = Window:CreateTab("Other", 6023565892)
     local OtherSection = OtherTab:CreateSection("Other")
     
     OtherTab:CreateButton({
@@ -311,7 +311,7 @@ local Window = Rayfield:CreateWindow({
 
 ----------[[]]----------
 
-    local CreditsTab = Window:CreateTab("Credits", 6026568229)
+    local CreditsTab = Window:CreateTab("Credits", 6022668907)
     local CreditsSection = CreditsTab:CreateSection("Credits")
     
     CreditsTab:CreateParagraph({
@@ -360,7 +360,7 @@ https://arraydocumentation.vercel.app/en/introduction]],
         Title = "Successfully Loaded Lunar Hub.",
         Content = "Lunar Hub has been loaded, enjoy!",
         Duration = math.huge,
-        Image = 6023426923,
+        Image = 6022668946,
         Actions = { -- Notification Buttons
             Answer = {
                 Name = "Okay!",
@@ -377,7 +377,7 @@ https://arraydocumentation.vercel.app/en/introduction]],
         Title = "Load Configuration?",
         Content = "Loads your personal configuration (if you have one).",
         Duration = math.huge,
-        Image = 6023426923,
+        Image = 6022668946,
         Actions = { -- Notification Buttons
             YesAnswer = {
                 Name = "Yes.",
