@@ -1,0 +1,22 @@
+local WLKEYS = {
+    "71ba36b1a59ca4b3578d3142146625",
+    "731182c6ac845eb1c7bbb88e887d96",
+    "d9b2bc3633432c6787ad56e7276774",
+    "5bde3ba8171998d66223e1b76e7c2b",
+    "6dd5263134cb8c7e38e57b6b7bc352",
+    "42b618c2d89ee398edc3778c7919be",
+    "158e268c2185cd7e14645dc91de541",
+    "b1564b295ca2cbeb65a244247aaa1b",
+    "8671bc667e6c435a7e14e49da82e2a",
+    "76587de3322dd2d45229638eee6c54"
+}
+
+if table.find(WLKEYS, _G.WL_Key) then
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/Lunarosity/LunarHub/main/Games/TheMaze')))()
+else
+    error()
+end
+
+--Hi, if you really want the script without the key then you've come to the right place, the key is just to waste peoples time lol
+--If you're actually bothering to go through the LH github then congrats, the script is open sourced and free to use lol
+--I don't actually want to bother working on the security of this script, so I made it free for anyone dedicated enough
