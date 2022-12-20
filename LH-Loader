@@ -11,7 +11,7 @@ local WLKEYS = {
     "76587de3322dd2d45229638eee6c54"
 }
 
-if table.find(WLKEYS, _G.WL_Key) then
+if table.find(WLKEYS, _G.WL_Key) and game.PlaceId == 730951264 then
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/Lunarosity/LunarHub/main/Games/TheMaze')))()
 else
     error()
